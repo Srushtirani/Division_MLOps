@@ -1,8 +1,7 @@
 
 import pytest
 from fastapi.testclient import TestClient
-from division import divide_numbers
-from main import app
+from main import divide_numbers, app
 
 client = TestClient(app)
 
@@ -30,10 +29,11 @@ def test_api_division():
     assert response.json()["result"] == 4.0
 
 
-def test_api_zero_denominator():
+def test_api_division_by_zero():
     response = client.post(
         "/divide",
         json={"num": 10, "denominator": 0}
     )
 
     assert response.status_code == 400
+    assert response.json()["detail"] == "Division by zero is not allowed"
