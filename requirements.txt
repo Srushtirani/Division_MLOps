@@ -1,5 +1,8 @@
+
 fastapi
 uvicorn
 pytest
-evidently==0.7.23
+httpx==0.27.2
 pandas==2.3.3
+numpy
+evidently==0.7.23
