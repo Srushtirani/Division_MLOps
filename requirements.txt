@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+pytest
+evidently==0.7.23
+pandas
