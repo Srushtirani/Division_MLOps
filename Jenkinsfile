@@ -4,6 +4,13 @@ pipeline {
 
     stages {
 
+        stage('GitHub Checkout') {
+            steps {
+                checkout scm
+                echo 'Code downloaded from GitHub'
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 bat 'python -m pip install -r requirements.txt'
